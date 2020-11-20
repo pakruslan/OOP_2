@@ -51,20 +51,68 @@ import functools
 
 
 
-def repeat(nbrTimes=4):
-    def real_repeat(func):
-        @functools.wraps(func)
-        def wrapper_repeat(*args, **kwargs):
-            nonlocal nbrTimes
-            while nbrTimes != 0:
-                nbrTimes -= 1
-                func(*args, **kwargs)
-        return wrapper_repeat
-    return real_repeat
+# def repeat(nbrTimes=4):
+#     def real_repeat(func):
+#         @functools.wraps(func)
+#         def wrapper_repeat(*args, **kwargs):
+#             nonlocal nbrTimes
+#             while nbrTimes != 0:
+#                 nbrTimes -= 1
+#                 func(*args, **kwargs)
+#         return wrapper_repeat
+#     return real_repeat
 
-@repeat(4)
-def display(x):
-    print(x)
+# @repeat(4)
+# def display(x):
+#     print(x)
 
-display("Python")
+# display("Python")
 
+
+
+# 4.
+# users = {'Ruslan': 14365, 'Andriano': 234456, 'Miran': 345527}
+
+# def decor(func):
+#     def wrapper(username='username', password = 'password'):
+#         if username in users.keys():
+#             if password == users[username]:
+#                 func(username, password)
+#             else:
+#                 print('Password is wrong')
+
+#         else: 
+#             print('Username  is not defind')
+#     return wrapper
+
+# @decor
+# def login(username, password ):
+#     print(f'Wellcome, {username}')
+
+# login(username='Akylai', password=12033)
+
+
+
+
+# 5.
+#  def myDecor(func):
+#     def wrapper(a, b=1, *args, **kwargs):
+#         print("Calling testFunc (", args, kwargs, ')')
+#         print('argument a:', a)
+#         print('argument b:', b)
+#         print('argument args:', args)
+#         print('argument kwargs:', kwargs)
+        
+        
+#         print('Finished testFunc', func(a, b, *args, **kwargs))
+#     return wrapper
+
+# @myDecor
+# def testFunc(a, b=1, *args, **kwargs):
+#     return a + b
+    
+# testFunc(2, 3, 4, 5, c=6, d=7)    
+# print()
+# testFunc(2, c=5, d=6) 
+# print()
+# testFunc(10)
